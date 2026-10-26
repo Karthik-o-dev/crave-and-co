@@ -1,0 +1,132 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.dishes {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.dishes:hover {
+    transform: scale(0.95);
+}
+
+.dishes img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    border-radius: 10px;
+}
+
+.dishes h2 {
+    font-weight: 600;
+}
+
+.previousButton {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.pageButton {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-width: 92vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.cart-drawer.open {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #E8FFEF;
+    color: #003B20;
+    flex-shrink: 0;
+}
+
+.drawer-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#close-cart {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.drawer-cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+body.cart-open {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 480px) {
+    .cart-drawer {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.quantity-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #E8FFEF;
+    color: #003B20;
+    font-weight: bold;
+    cursor: pointer;
+}

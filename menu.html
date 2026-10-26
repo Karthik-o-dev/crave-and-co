@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crave & Co.</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body class="bg-[#E8FFEF]">
+    <header
+        class="flex flex-wrap justify-between items-center gap-3 bg-white my-2 mx-2 sm:mx-4 lg:mx-10 rounded-3xl lg:rounded-[100px] px-3 sm:px-5 lg:px-6 py-3 sticky top-2">
+        <div class="flex items-center">
+            <a href="./home.html"><img src="./assets/title.png" alt="title" class="h-8"></a>
+
+            <div>
+                <h1 class="font-semibold text-lg">Crave & Co.</h1>
+                <h2 class="text-[10px]">Good Food. Great Mood.</h2>
+            </div>
+
+        </div>
+
+        <nav class="bg-[#E8FFEF] p-2 px-3 sm:px-5 rounded-full mx-auto lg:mx-0">
+            <ul
+                class="flex flex-wrap justify-center items-center gap-3 sm:gap-5 lg:gap-8 font-semibold text-gray-500 text-sm sm:text-base">
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./menu.html">Menu</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./order.html">Orders</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <button id="cart-button" class="relative p-2 px-4 rounded-full bg-[#E8FFEF] text-[#003B20] cursor-pointer">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cart-count" class="ml-1 text-sm font-bold">0</span>
+            </button>
+            <div id="profile-section" class="hidden relative">
+                <button id="profile-button" type="button"
+                    class="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 font-semibold text-[#003B20] cursor-pointer">
+                    <i class="fa-solid fa-circle-user text-xl"></i>
+                    <span id="profile-name">Profile</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+
+                <div id="profile-menu"
+                    class="hidden absolute right-0 top-full mt-3 w-64 rounded-2xl bg-white p-5 shadow-xl border border-gray-100 z-[1500]">
+
+                    <p class="text-xs text-gray-500 mb-1">Signed in as</p>
+                    <h3 id="profile-full-name" class="font-bold text-[#003B20] break-words"></h3>
+
+                    <p id="profile-email" class="text-sm text-gray-500 mt-1 break-words"></p>
+
+                    <div class="border-t border-gray-100 my-4"></div>
+
+                    <a href="./order.html"
+                        class="flex items-center gap-2 text-sm font-semibold text-gray-700 hover:text-[#FF6B21]">
+                        <i class="fa-solid fa-receipt"></i>
+                        My Orders
+                    </a>
+
+                    <button id="logout-button" type="button"
+                        class="mt-4 w-full rounded-full bg-red-50 py-2 font-semibold text-red-600 hover:bg-red-100 cursor-pointer">
+                        <i class="fa-solid fa-right-from-bracket mr-2"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="menu" class="mt-6 sm:mt-10 px-4 sm:px-6 lg:px-10">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                <div>
+                    <p class="text-amber-900 font-semibold text-[12px]">THE FULL CATALOG</p>
+                    <p class="font-bold text-2xl sm:text-3xl lg:text-4xl">Explore Our Fresh Kitchen</p>
+                    <p class="text-gray-500">Handcrafted culinary creations ready for immediate delivery.</p>
+                </div>
+                <div class="bg-white rounded-full flex items-center  w-full md:w-[280px] h-10 px-4 gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-sm text-gray-700"></i>
+                    <input id="recipe-search" type="text" placeholder="Search for dishes, cuisines, ingredients."
+                        class="w-full min-w-0 outline-none text-xs text-gray-700 placeholder:text-gray-400">
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 sm:gap-3 my-4">
+                <button data-category="all"
+                    class="category-btn bg-black text-white rounded-full px-3 py-2 text-xs font-semibold cursor-pointer">All
+                    Dishes</button>
+                <button data-category="breakfast"
+                    class="category-btn bg-white rounded-full px-3 py-2 text-xs font-semibold cursor-pointer">Breakfast</button>
+                <button data-category="lunch"
+                    class="category-btn bg-white rounded-full px-3 py-2 text-xs font-semibold cursor-pointer">Lunch
+                    &
+                    Bowls</button>
+                <button data-category="dinner"
+                    class="category-btn bg-white rounded-full px-3 py-2 text-xs font-semibold cursor-pointer">Dinner
+                    Specialties</button>
+                <button data-category="snack"
+                    class="category-btn bg-white rounded-full px-3 py-2 text-xs font-semibold cursor-pointer">Sides
+                    &
+                    Snacks</button>
+            </div>
+
+            <div id="menu-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+
+            <div id="pagination" class="flex justify-center items-center gap-2 mt-8 mb-10"></div>
+        </section>
+    </main>
+
+
+    <footer class="bg-[#003B20]">
+        <section class="px-4 sm:px-6 lg:px-10 mt-10 sm:mt-16 lg:mt-20 py-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"">
+                <div>
+                    <p class=" font-bold text-xl text-white mb-2">Crave & Co.</p>
+                <p class="text-orange-200 text-sm font-semibold mb-1">Good Food. Great Mood.</p>
+                <p class="text-gray-400 text-sm">Crafting farm-fresh artisan culinary moments daily. Sourced with
+                    integrity,
+                    prepared with mindful
+                    passion, and delivered warm to your table.</p>
+            </div>
+
+            <div>
+                <p class="font-bold text-xl text-white mb-2">Explore</p>
+                <ul class="text-gray-400 text-sm mb-1">
+                    <li><a href="./menu.html">Menu</a></li>
+                    <li>Popular Dishes</li>
+                    <li>Why Us</li>
+                    <li>Dietary Guide</li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-bold text-xl text-white mb-2">Company</p>
+                <ul class="text-gray-400 text-sm mb-1">
+                    <li><a href="./about.html">About</a></li>
+                    <l>Contact</li>
+                        <li>Admin Portal</li>
+                        <li>Partner Farmers</li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-bold text-xl text-white mb-2">Stay Nourished</p>
+                <p class="text-gray-400 text-sm">Subscribe for seasonal specials, secret kitchen recipes, and member
+                    tastings.</p>
+            </div>
+
+
+            </div>
+        </section>
+    </footer>
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h2>
+                <i class="fa-solid fa-bag-shopping"></i>Your Feast Basket
+            </h2>
+            <button id="close-cart">&times;</button>
+        </div>
+
+        <div class="drawer-cart-items" id="drawer-cart-items">
+            <p class="text-gray-500">Your basket is empty.</p>
+        </div>
+
+        <div id="cart-summary" class="border-t px-10 py-5 bg-white">
+
+            <div class="flex justify-between mb-2">
+                <span class="text-gray-500">Subtotal</span>
+                <span id="cart-subtotal" class="font-semibold">$0.00</span>
+            </div>
+
+            <div class="flex justify-between mb-2">
+                <span class="text-gray-500">Delivery</span>
+                <span id="cart-delivery" class="font-semibold">$2.00</span>
+            </div>
+
+            <div class="border-t pt-3 mt-3 flex justify-between">
+                <span class="font-bold">Total</span>
+                <span id="cart-total" class="font-bold text-lg">$0.00</span>
+            </div>
+
+            <button id="checkout-button"
+                class="w-full mt-4 bg-[#FF6B21] text-white py-3 rounded-full font-semibold cursor-pointer hover:scale-105 duration-200 ease-in">
+                Proceed to Checkout
+            </button>
+        </div>
+    </aside>
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <div id="recipe-modal"
+        class="hidden fixed inset-0 z-[2000] bg-black/10 backdrop-blur-md  items-center justify-center p-4">
+        <div id="recipe-modal-content"
+            class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-4 sm:p-6 scrollbar-none overflow-auto ">
+            <button id="close-recipe-modal"
+                class="absolute top-2 right-4 w-10 h-10 rounded-full bg-white text-lg text-black hover:bg-gray-100 cursor-pointer">&times;</button>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <div class="w-full sm:w-auto shrink-0">
+                    <img id="modal-recipe-image" src="" alt=""
+                        class="object-cover rounded-md w-full h-56 sm:w-50 sm:h-50">
+                </div>
+                <div class="">
+                    <p id="modal-recipe-cuisine" class="text-sm text-[#FF6B21] font-semibold mb-2">
+                    </p>
+
+                    <h2 id="modal-recipe-name" class="text-xl sm:text-2xl md:text-3xl font-bold text-[#003B20] mb-3">
+                    </h2>
+
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-5">
+                        <span id="modal-recipe-rating"></span>
+                        <span id="modal-recipe-time"></span>
+                        <span id="modal-recipe-servings"></span>
+                    </div>
+
+                    <p id="modal-recipe-price" class="text-xl font-bold text-[#003B20] mb-6">
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-[#003B20] mb-3">
+                        Ingredients
+                    </h3>
+                    <ul id="modal-recipe-ingredients" class="list-disc pl-5 space-y-2 text-sm text-gray-600">
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-[#003B20] mb-3">
+                        Instructions
+                    </h3>
+                    <ol id="modal-recipe-instructions"
+                        class="list-decimal pl-5 space-y-2 text-sm text-gray-600 font-mono">
+                    </ol>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 mb-5">
+                <span class="font-semibold text-gray-700">Quantity</span>
+
+                <div class="flex items-center gap-3 border rounded-full px-3 py-1">
+                    <button id="modal-quantity-minus" type="button" class="px-2 text-lg font-bold cursor-pointer">
+                        −
+                    </button>
+
+                    <span id="modal-quantity" class="font-semibold">1</span>
+
+                    <button id="modal-quantity-plus" type="button" class="px-2 text-lg font-bold cursor-pointer">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <button id="modal-add-to-cart" type="button"
+                class="w-full bg-[#FF6B21] hover:bg-[#e85d18] text-white font-semibold py-3 rounded-full cursor-pointer transition">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+    <script>
+        const currentUser = JSON.parse(
+            localStorage.getItem("currentUser")
+        );
+
+        if (!currentUser) {
+            window.location.replace("./home.html?login=1");
+        }
+    </script>
+
+    <script src="./api.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./cart-drawer.js"></script>
+    <script src="./profile.js"></script>
+</body>
+
+</html>
