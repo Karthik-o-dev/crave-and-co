@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleDetection": "legacy",
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "strict": true,
+    "noEmitOnError": true,
+    "outDir": "./dist",
+    "skipLibCheck": true
+  },
+  "include": [
+    "api.ts",
+    "auth.ts",
+    "cart-drawer.ts",
+    "home.ts",
+    "menu.ts",
+    "order.ts",
+    "checkout.ts",
+    "profile.ts"
+  ]
+}
